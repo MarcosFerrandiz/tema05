@@ -7,6 +7,11 @@ public class Ejercicio4 {
 
     }
 
+    /**
+     * Coje la frase introducida por el usuario separa las palabras y las introcude en dierentes arrays, luego cuenta la cantidad de vocales y la de consonantes por palabra
+     * @param frase Frase introducida por el usuario
+     * @return Devuelve un string con la cantidad de vocales y consonantes por palabra
+     */
     public static String separarPalabrasYContarVocYCons(String frase) {
         StringBuilder sb = new StringBuilder();
         frase = frase.toLowerCase();
