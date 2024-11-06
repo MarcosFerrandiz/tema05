@@ -28,7 +28,7 @@ public class Ejercicio5 {
                 palabraLarga = pala;
             }
         }
-        sb.append("La palabra mas larga introducida es la palabra "+ palabraLarga+" con un total de "+totalLetras+" caracteres/letras");
+        sb.append("La palabra mas larga introducida es la palabra ").append(palabraLarga).append(" con un total de ").append(totalLetras).append(" caracteres/letras");
         return sb.toString();
     }
 }
