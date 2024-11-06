@@ -3,10 +3,15 @@ package com.marcosferrandiz.tema05.Strings;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String frase = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Escriba la frase que quiera",1,75);
+        String frase = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Escriba la frase que quiera",1,111);
         System.out.println(palabraMasLarga(frase));
     }
 
+    /**
+     * Coje una frase que introduzca el usuario y busca la palabra mas larga y la muestra por pantalla junto a su longitud
+     * @param frase Es la frase introducida por el usuario
+     * @return Devuelve la palabra mas larga de la frase y su cantidad de caracteres
+     */
     public static String palabraMasLarga(String frase){
         StringBuilder sb = new StringBuilder();
         frase = frase.toLowerCase();
