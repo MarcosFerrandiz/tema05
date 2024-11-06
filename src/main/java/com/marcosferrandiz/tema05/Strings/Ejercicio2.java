@@ -20,7 +20,6 @@ public class Ejercicio2 {
             switch (caracter){
                 case 'a','e','i','o','u' -> voc++;
                 case 'b','c','d','f','g','h','j','k','l','m','n','ñ','p','q','r','s','t','v','w','x','y','z' -> cons++;
-                default -> {}
             }
         }
         return "La frase tiene un total de "+ cons +" consonantes, y un total de "+ voc +" vocales" ;
