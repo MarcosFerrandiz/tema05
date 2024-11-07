@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Ejercicio6 {
     public static void main(String[] args) {
-        String frase = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Escriba la frase que quiera", 1,75);
-        int facto = com.marcosferrandiz.tema04.libreria.IO.solicitarEntero("Indique el factor de multiplicacion",1,10);
+        String frase = com.marcosferrandiz.tema05.libreria.IO.solicitarString("Escriba la frase que quiera", 1,75);
+        int facto = com.marcosferrandiz.tema05.libreria.IO.solicitarEntero("Indique el factor de multiplicacion",1,10);
         System.out.println(repetirFraseXVeces(frase, facto));
     }
 

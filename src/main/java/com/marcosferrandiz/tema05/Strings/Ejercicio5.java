@@ -3,7 +3,7 @@ package com.marcosferrandiz.tema05.Strings;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String frase = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Escriba la frase que quiera",1,111);
+        String frase = com.marcosferrandiz.tema05.libreria.IO.solicitarString("Escriba la frase que quiera",1,111);
         System.out.println(palabraMasLarga(frase));
     }
 

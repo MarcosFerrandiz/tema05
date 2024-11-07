@@ -1,4 +1,4 @@
-package com.marcosferrandiz.tema04.libreria;
+package com.marcosferrandiz.tema05.libreria;
 
 import java.util.Scanner;
 
@@ -42,6 +42,41 @@ public class IO {
         }while (!valido);
         return num;
 
+    }
 
+    public static int contarVocales(String texto){
+        int vocales = 0;
+        for (int i = 0; i < texto.length();i++){
+            if (esVocal(texto.charAt(i))){
+                vocales++;
+            }
+        }
+        return vocales;
+    }
+
+    public static boolean esVocal(char c){
+        c = Character.toLowerCase(c);
+        String vocales = "aáàeéèiíìoóòuúù";
+        return vocales.indexOf(c) >= 0;
+    }
+
+
+    public static boolean esConsonante(char c){
+        return  Character.isLetter(c) && !esVocal(c);
+    }
+
+    public static int contarConsonante(String texto){
+        int consonantes = 0;
+        for (int i = 0; i < texto.length(); i++){
+            if (esConsonante(texto.charAt(i)));
+            consonantes++;
+        }
+        return consonantes;
+    }
+
+    public static int contarPalabras(String texto){
+        texto = texto.trim();
+        String[] palabras = texto.split("\\s+");
+        return palabras.length;
     }
 }

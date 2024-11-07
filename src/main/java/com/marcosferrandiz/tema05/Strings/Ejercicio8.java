@@ -2,7 +2,7 @@ package com.marcosferrandiz.tema05.Strings;
 
 public class Ejercicio8 {
     public static void main(String[] args) {
-        String frase = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Escriba la frase",1,75);
+        String frase = com.marcosferrandiz.tema05.libreria.IO.solicitarString("Escriba la frase",1,75);
         mostrarPalabraMasLongitud(frase);
     }
 

@@ -2,7 +2,7 @@ package com.marcosferrandiz.tema05.Strings;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
-        String oracion = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Introduzca la frase/palabra/lo que quieras: ",0,75 );
+        String oracion = com.marcosferrandiz.tema05.libreria.IO.solicitarString("Introduzca la frase/palabra/lo que quieras: ",0,75 );
         System.out.println(contarVocalesYConsonantes(oracion));
     }
 

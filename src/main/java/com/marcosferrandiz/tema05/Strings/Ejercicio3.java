@@ -2,7 +2,7 @@ package com.marcosferrandiz.tema05.Strings;
 
 public class Ejercicio3 {
     public static void main(String[] args) {
-        String oracion = com.marcosferrandiz.tema04.libreria.IO.solicitarString("Introduzca la frase/palabra/lo que quieras: ",0,75 );
+        String oracion = com.marcosferrandiz.tema05.libreria.IO.solicitarString("Introduzca la frase/palabra/lo que quieras: ",0,75 );
         System.out.println(contarEspacios(oracion));
     }
 
@@ -13,6 +13,7 @@ public class Ejercicio3 {
      */
     public static String contarEspacios(String oracion){
         int numEspacio = 0;
+        oracion = oracion.trim();
         for (int i = 0; i<= oracion.length()-1; i++){
             char caracter = oracion.charAt(i);
             switch (caracter){
