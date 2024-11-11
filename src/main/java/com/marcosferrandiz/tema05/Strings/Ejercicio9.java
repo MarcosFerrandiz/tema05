@@ -13,7 +13,7 @@ public class Ejercicio9 {
      */
     public static String posicionesImpares(String frase){
         StringBuilder sb = new StringBuilder();
-        for (int i = 1; i < frase.length(); i += 2){
+        for (int i = 0; i < frase.length(); i += 2){
             sb.append(frase.charAt(i));
         }
         return sb.toString();
