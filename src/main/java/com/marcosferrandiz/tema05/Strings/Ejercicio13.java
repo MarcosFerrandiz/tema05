@@ -25,6 +25,9 @@ public class Ejercicio13 {
         return deci;
     }
 
+    /**
+     * Pide 3 palabras y te muestra finalmente la palabra mas larga
+     */
     public static void palabraMasLarga(){
         String pal1 = IO.solicitarString("Ingrese la primera palabra",1,75);
         String pal2 = IO.solicitarString("Ingrese la segunda palabra",1,75);
@@ -39,6 +42,9 @@ public class Ejercicio13 {
         System.out.printf("La palabra mas larga es: %s", palMasLarga);
     }
 
+    /**
+     * Pide tres palabras y te muestra finalmente la palabra mas corta
+     */
     public static void palabraMasCorta(){
         String pal1 = IO.solicitarString("Ingrese la primera palabra",1,75);
         String pal2 = IO.solicitarString("Ingrese la segunda palabra",1,75);
@@ -53,6 +59,9 @@ public class Ejercicio13 {
         System.out.printf("La palabra mas corta es: %s", palMasCorta);
     }
 
+    /**
+     * Pide una palabra y te dice la cantidad de vocales que hay
+     */
     public static void contarVocales(){
         String palabra = IO.solicitarString("Introduzca una palabra", 1, 75);
         String voc = "aeiouáéíóúàèìòùAEIOUÁÉÍÓÚÀÈÌÒÙ";
@@ -69,13 +78,15 @@ public class Ejercicio13 {
 
     public static void main(String[] args) {
         int deci;
-        switch (deci = mostrarMenu()){
-            case 1 -> palabraMasLarga();
-            case 2 -> palabraMasCorta();
-            case 3 -> contarVocales();
-            case 0 ->  {
-                break;
+        do {
+            switch (deci = mostrarMenu()){
+                case 1 -> palabraMasLarga();
+                case 2 -> palabraMasCorta();
+                case 3 -> contarVocales();
+                case 0 ->  {
+                    break;
+                }
             }
-        }
+        }while (deci != 0);
     }
 }
