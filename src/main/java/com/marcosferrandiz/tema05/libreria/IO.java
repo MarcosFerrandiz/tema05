@@ -104,7 +104,7 @@ public class IO {
         }
     }
 
-    public static String mostrarArrayComoToString(double[] array, int cantDecimales){
+    public static String arrayToString(double[] array, int cantDecimales){
         if (array == null){
             return null;
         }
@@ -144,8 +144,18 @@ public class IO {
         Random random = new Random();
         return valorMinimo + random.nextDouble() * (valorMaximo - valorMinimo);
     }
+    public static int aleatorio(int valorMinimo, int valorMaximo){
+        Random random = new Random();
+        return valorMinimo + random.nextInt() * (valorMaximo - valorMinimo);
+    }
 
     public static void rellenarArrayAleatoriamente(double[] array, double valorMinimo, double valorMaximo){
+        Random random = new Random();
+        for (int i = 0; i< array.length; i++){
+            array[i] = aleatorio(valorMinimo, valorMaximo);
+        }
+    }
+    public static void rellenarArrayAleatoriamente(int[] array, int valorMinimo, int valorMaximo){
         Random random = new Random();
         for (int i = 0; i< array.length; i++){
             array[i] = aleatorio(valorMinimo, valorMaximo);
@@ -159,35 +169,46 @@ public class IO {
         }
         return suma / array.length;
     }
-    /*
-    public static String arrayToString(double[] array, int decimales, int columnas, int padding){
-        if (array == null){
+
+    public static int determinarLongitudMaxima(double[] array, int decimales) {
+        int longitudMaxima = 0;
+        String formato = "%." + decimales + "f";
+        for (double numero : array) {
+            int longitudActual = String.format(formato, numero).length();
+            if (longitudMaxima < longitudActual) {
+                longitudMaxima = longitudActual;
+            }
+        }
+        return longitudMaxima;
+    }
+
+    public static String arrayToString(double[] array, int decimales, int columnas) {
+        return arrayToString(array, decimales, columnas, 2);
+    }
+
+    public static String arrayToString(double[] array, int decimales, int columnas, int padding) {
+        if (array == null) {
             return null;
         }
         StringBuilder sb = new StringBuilder();
-        String formato = "%."+ decimales+"f";
-        int tamanyoColumna = determinarLongitudMaxima(array,decimales) + padding;
+        int tamanyoColumna = determinarLongitudMaxima(array, decimales) + padding;
+        String formato = "%" + tamanyoColumna + "." + decimales + "f";
         String formatoColumna = "%-" + tamanyoColumna + "s";
         for (int i = 0; i < array.length; i++) {
             sb.append(String.format(formatoColumna, String.format(formato, array[i])));
-            if (i % columnas == 0){
+            if ((i + 1) % columnas == 0) {
                 sb.append("\n");
             }
         }
-        sb.append("]");
         return sb.toString();
-
     }
 
-    public static int determinarLongitudMaxima(double[] array, int decimales){
-        int longitudMaxima = 0;
-        String formato = "%."+ decimales+"f";
-        for (int i = 0; i < array.length; i++) {
-            int longitudActual = String.format(formato,array[i]);
+    public static int[] sumarArrays(int[] array1, int[] array2, int tamanyoArray){
+        int[] resultadoSuma = new int[tamanyoArray];
+        for (int i = 0; i < resultadoSuma.length ; i++) {
+            resultadoSuma[i] = array1[i] + array2[i];
         }
+        return resultadoSuma;
     }
-    public static String arrayToString(double[] array, int decimales, int columnas){
-        return arrayToString()
-    }
-    */
+
 }

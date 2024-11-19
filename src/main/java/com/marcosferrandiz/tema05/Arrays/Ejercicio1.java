@@ -8,7 +8,7 @@ public class Ejercicio1 {
         double sumMedia = 0;
         IO.rellenarArrayAleatoriamente(num,0,10);
         System.out.println("Los números introducidos són...");
-        System.out.println(IO.mostrarArrayComoToString(num,4));
+        System.out.println(IO.arrayToString(num,4));
         System.out.printf("\nLa media de los números anteriores es: %.2f\n", IO.mediaArray(num));
     }
 
