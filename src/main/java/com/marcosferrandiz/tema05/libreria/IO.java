@@ -1,8 +1,11 @@
 package com.marcosferrandiz.tema05.libreria;
 
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class IO {
+
     /**
      * Solicita un texto y valida que su longitud este comprendida entre longitudMinima y longitudMaxima
      * @param mensaje Mensaje que se le mostrará al usuario
@@ -79,4 +82,112 @@ public class IO {
         String[] palabras = texto.split("\\s+");
         return palabras.length;
     }
+
+    public static  void solicitarDatosArray(double[] array){
+        Scanner input = new Scanner(System.in);
+        if (array == null){
+            return;
+        }
+        for (int i = 0; i < array.length; i++){
+            System.out.printf("a[%d]?\n", i);
+            array[i] = Double.parseDouble(input.nextLine());
+        }
+    }
+    public static  void solicitarDatosArray(char[] array){
+        Scanner input = new Scanner(System.in);
+        if (array == null){
+            return;
+        }
+        for (int i = 0; i < array.length; i++){
+            System.out.printf("a[%d]?\n", i);
+            array[i] = input.nextLine().charAt(0);
+        }
+    }
+
+    public static String mostrarArrayComoToString(double[] array, int cantDecimales){
+        if (array == null){
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        String espacio = "";
+        String coma = ",";
+        String formato = "%."+ cantDecimales+"f";
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length -1) {
+                coma="";
+            }
+            sb.append(espacio).append(String.format(formato, array[i])).append(coma);
+            if (i == 0){
+                espacio =" ";
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
+    public enum Paridad{
+        PARES, IMPARES;
+    }
+
+    public static String arrayToString(char[] array, Paridad paridad){
+        final int NUM_ELEMENTOS = paridad == Paridad.PARES ? array.length/2 : array.length / 2 + 1;
+        char[] resultado = new char[NUM_ELEMENTOS];
+        int contador = 0;
+        for (int i = paridad == Paridad.PARES ? 0 : 1; i < array.length; i+= 2) {
+            resultado[contador++] = array[i];
+        }
+        return Arrays.toString(resultado);
+    }
+
+    public static double aleatorio(double valorMinimo, double valorMaximo){
+        Random random = new Random();
+        return valorMinimo + random.nextDouble() * (valorMaximo - valorMinimo);
+    }
+
+    public static void rellenarArrayAleatoriamente(double[] array, double valorMinimo, double valorMaximo){
+        Random random = new Random();
+        for (int i = 0; i< array.length; i++){
+            array[i] = aleatorio(valorMinimo, valorMaximo);
+        }
+    }
+
+    public static double mediaArray(double[] array){
+        double suma = 0;
+        for (double numero : array){
+            suma += numero;
+        }
+        return suma / array.length;
+    }
+    /*
+    public static String arrayToString(double[] array, int decimales, int columnas, int padding){
+        if (array == null){
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        String formato = "%."+ decimales+"f";
+        int tamanyoColumna = determinarLongitudMaxima(array,decimales) + padding;
+        String formatoColumna = "%-" + tamanyoColumna + "s";
+        for (int i = 0; i < array.length; i++) {
+            sb.append(String.format(formatoColumna, String.format(formato, array[i])));
+            if (i % columnas == 0){
+                sb.append("\n");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+
+    }
+
+    public static int determinarLongitudMaxima(double[] array, int decimales){
+        int longitudMaxima = 0;
+        String formato = "%."+ decimales+"f";
+        for (int i = 0; i < array.length; i++) {
+            int longitudActual = String.format(formato,array[i]);
+        }
+    }
+    public static String arrayToString(double[] array, int decimales, int columnas){
+        return arrayToString()
+    }
+    */
 }

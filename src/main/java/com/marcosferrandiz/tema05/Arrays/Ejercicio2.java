@@ -1,48 +1,19 @@
 package com.marcosferrandiz.tema05.Arrays;
 
+import com.marcosferrandiz.tema05.libreria.IO;
+
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ejercicio2 {
     public static void main(String[] args) {
-        char[] caract = new char[10];
-        solicitarCaracteres(caract);
-        mostrarArraysPares(caract);
-        mostrarArraysImpares(caract);
-    }
+        final int TAMANYO_ARRAY = 10;
+        double[] array = new double[TAMANYO_ARRAY];
+        char[] arrayChar = new char[TAMANYO_ARRAY];
+        IO.solicitarDatosArray(arrayChar);
 
-    /**
-     * Solicita para introducir caracteres la cantidad de veces de arrays
-     * @param caract Es el array creado con todos los caracteres para saber la cantidad de veces que se debe de solicitar
-     */
-    public static void solicitarCaracteres(char[] caract){
-        Scanner input = new Scanner(System.in);
-        for (int i = 0; i < caract.length; i++){
-            System.out.println("Introduzca el carácter deseado:");
-            caract[i] = input.next().charAt(0);
-        }
-    }
+        System.out.println(Arrays.toString(arrayChar));
+        System.out.println(IO.arrayToString (arrayChar, IO.Paridad.PARES));
 
-    /**
-     * Muestra los caracteres pares del array
-     * @param caract Es el array creado con todos los caracteres
-     */
-    public static void mostrarArraysPares(char[] caract){
-        System.out.println("Caracteres en posiciones de arrays pares:");
-        for (int i = 0; i < caract.length; i+=2){
-            System.out.print(caract[i]+", ");
-        }
-        System.out.println();
-    }
-
-    /**
-     * Muestra los caracteres impares del array
-     * @param caract Es el array creado con todos los caracteres
-     */
-    public static void mostrarArraysImpares(char[] caract){
-        System.out.println("Caracteres en posiciones de arrays impares:");
-        for (int i = 1; i < caract.length; i+=2){
-            System.out.print(caract[i]+", ");
-        }
-        System.out.println();
     }
 }
