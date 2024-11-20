@@ -47,6 +47,25 @@ public class IO {
 
     }
 
+    public static Double solicitarDoubles(String mensaje, double numMin, double numMax){
+        Scanner scanner = new Scanner(System.in);
+        boolean valido;
+        double num;
+
+        do {
+            System.out.println(mensaje);
+            num = Double.parseDouble(scanner.nextLine());
+            valido = num >= numMin && num <= numMax;
+
+            if (!valido){
+                System.err.printf("El numero no es válido, debe de estar entre el %d - %d\n", numMin, numMax);
+            }
+
+        }while (!valido);
+        return num;
+
+    }
+
     public static int contarVocales(String texto){
         int vocales = 0;
         for (int i = 0; i < texto.length();i++){
