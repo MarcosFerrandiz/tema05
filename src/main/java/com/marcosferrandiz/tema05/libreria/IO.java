@@ -112,6 +112,16 @@ public class IO {
             array[i] = Double.parseDouble(input.nextLine());
         }
     }
+    public static  void solicitarDatosArray(int[] array){
+        Scanner input = new Scanner(System.in);
+        if (array == null){
+            return;
+        }
+        for (int i = 0; i < array.length; i++){
+            System.out.printf("a[%d]?\n", i);
+            array[i] = Integer.parseInt(input.nextLine());
+        }
+    }
     public static  void solicitarDatosArray(char[] array){
         Scanner input = new Scanner(System.in);
         if (array == null){
