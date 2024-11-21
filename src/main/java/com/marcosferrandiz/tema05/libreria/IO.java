@@ -154,6 +154,27 @@ public class IO {
         sb.append("]");
         return sb.toString();
     }
+    public static String arrayToString(int[] array, int cantDecimales){
+        if (array == null){
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        String espacio = "";
+        String coma = ",";
+        String formato = "%."+ cantDecimales+"f";
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length -1) {
+                coma="";
+            }
+            sb.append(espacio).append(String.format(formato, array[i])).append(coma);
+            if (i == 0){
+                espacio =" ";
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
 
     public enum Paridad{
         PARES, IMPARES;
@@ -175,7 +196,7 @@ public class IO {
     }
     public static int aleatorio(int valorMinimo, int valorMaximo){
         Random random = new Random();
-        return valorMinimo + random.nextInt() * (valorMaximo - valorMinimo);
+        return valorMinimo + random.nextInt((valorMaximo - valorMinimo));
     }
 
     public static void rellenarArrayAleatoriamente(double[] array, double valorMinimo, double valorMaximo){
@@ -185,7 +206,6 @@ public class IO {
         }
     }
     public static void rellenarArrayAleatoriamente(int[] array, int valorMinimo, int valorMaximo){
-        Random random = new Random();
         for (int i = 0; i< array.length; i++){
             array[i] = aleatorio(valorMinimo, valorMaximo);
         }
