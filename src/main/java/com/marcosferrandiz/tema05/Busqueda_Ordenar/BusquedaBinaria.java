@@ -3,33 +3,23 @@ package com.marcosferrandiz.tema05.Busqueda_Ordenar;
 import com.marcosferrandiz.tema05.libreria.IO;
 
 public class BusquedaBinaria {
-    public static int busquedaBinaria(int[] array, int elemento) {
+    public static void main(String[] args) {
+        int[] array = {1,20,30,50,80,100,200,1000};
+        int buscar = 20;
         int inicio = 0;
         int fin = array.length - 1;
         while (inicio <= fin) {
-            int medio = inicio + (fin - inicio) / 2;
-            if (array[medio] == elemento) {
-                return medio;
+            int medio = (inicio + fin) / 2;
+
+            if (array[medio] == buscar) {
+                System.out.println("se ha encontrado");
             }
-            if (array[medio] < elemento) {
-                inicio = medio + 1;
+
+            if (array[medio] < buscar) {
+                inicio = medio + 1; // Buscar en la mitad superior
             } else {
-                fin = medio - 1;
+                fin = medio - 1; // Buscar en la mitad inferior
             }
-        }
-
-        return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] array = new int[50];
-        IO.rellenarArrayAleatoriamente(array,1,100);
-        int elementoABuscar = IO.solicitarEntero("Indique el numero a buscar",1,100);
-        int resultado = busquedaBinaria(array, elementoABuscar);
-        if (resultado != -1) {
-            System.out.println("Elemento encontrado en la posición: " + resultado);
-        } else {
-            System.out.println("Elemento no encontrado en el array.");
         }
     }
 }

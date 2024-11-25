@@ -3,26 +3,19 @@ package com.marcosferrandiz.tema05.Busqueda_Ordenar;
 import com.marcosferrandiz.tema05.libreria.IO;
 
 public class BusquedaLineal {
-    public static int busquedaLineal(int[] array, int elemento) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == elemento) {
-                return i;
+    public static void main(String[] args) {
+        int[] array = {1,30,20,1,5,100,5,7,100,1000};
+        int buscar = 31;
+        boolean encontrado = false;
+        for (int i = 0; i < array.length-1;i++){
+            if (buscar == array[i]){
+                encontrado = true;
+                System.out.println("se ha encontrado en la posicion: " + i);
+                break;
             }
         }
-        return -1;
-    }
-
-    public static void main(String[] args) {
-        int[] array = new int[50];
-        IO.rellenarArrayAleatoriamente(array,1,100);
-        int elementoABuscar = IO.solicitarEntero("Indique el numero a buscar",1,100);
-
-        int resultado = busquedaLineal(array, elementoABuscar);
-
-        if (resultado != -1) {
-            System.out.println("Elemento encontrado en la posición: " + resultado);
-        } else {
-            System.out.println("Elemento no encontrado en el array.");
+        if (!encontrado){
+            System.out.println("no se ha encontrado");
         }
     }
 }
