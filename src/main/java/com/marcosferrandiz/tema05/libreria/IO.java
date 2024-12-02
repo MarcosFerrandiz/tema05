@@ -211,6 +211,18 @@ public class IO {
         }
     }
 
+    public static int[] rellenarArrayAleatoriamente(int tamanyo, int valorMinimo, int valorMaximo){
+        Random random = new Random();
+        int[] enteros = new int[tamanyo];
+        for (int i = 0; i < enteros.length; i++) {
+            enteros[i] = random.nextInt(valorMinimo, valorMaximo + 1);
+        }
+        return enteros;
+
+    }
+
+
+
     public static double mediaArray(double[] array){
         double suma = 0;
         for (double numero : array){
