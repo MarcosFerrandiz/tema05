@@ -29,16 +29,6 @@ public class matriz {
         return sb.toString();
     }
 
-    public static String matrizToString(String[][] matriz){
-        StringBuilder sb = new StringBuilder();
-        for (String[] fila : matriz){
-            for (String valor : fila){
-                sb.append(String.format( valor));
-            }
-            sb.append("\n");
-        }
-        return sb.toString();
-    }
 
     public static int determinarLongitudMaxima(double[][] matriz, int decimales){
         int longitudMaxima = 0;
