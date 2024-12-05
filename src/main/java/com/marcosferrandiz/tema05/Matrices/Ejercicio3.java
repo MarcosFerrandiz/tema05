@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Ejercicio3 {
     public enum Ficha{
-        O,X
+        O,X, NONE
     }
     public enum Jugador{
         PLAYER1, PLAYER2
@@ -24,7 +24,7 @@ public class Ejercicio3 {
         tablero = new Ficha[FILAS][COLUMNAS];
         for (int i = 0; i < tablero.length ; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
-                tablero[i][j] = null;
+                tablero[i][j] = Ficha.NONE;
             }
         }
 
@@ -53,7 +53,7 @@ public class Ejercicio3 {
                 System.err.println("Debe indicar la fila (letra) y la columna (número). Ejemplo: A2");
                 continue;
             }
-            valido = esJugadaValida(fila, Character.getNumericValue(columna));
+            valido = esJugadaValida(fila, columna);
             if (!valido){
                 System.err.println("Esa posicion ya está ocupada");
             }
@@ -65,14 +65,14 @@ public class Ejercicio3 {
     private static int getFilaReal(char fila){
         return fila - 'A';
     }
-    private static int getColumnaReal(int collumna){
-        return collumna-1;
+    private static int getColumnaReal(char columna){
+        return Character.getNumericValue(columna) -1;
     }
 
-    private static boolean esJugadaValida(char fila, int columna){
-        int filaReal = fila - 'A';
-        int columnaReal = columna - 1;
-        return tablero[filaReal][columnaReal] == null;
+    private static boolean esJugadaValida(char fila, char columna){
+        int filaReal = getFilaReal(fila);
+        int columnaReal = getColumnaReal(columna);
+        return tablero[filaReal][columnaReal].equals(Ficha.NONE);
     }
 
     private static Ficha getFichaJugador (Jugador jugador){
@@ -86,7 +86,7 @@ public class Ejercicio3 {
         for (int i = 0; i < tablero.length ; i++) {
             sb.append("|---|---|---|\n");
             for (int j = 0; j < tablero[i].length ; j++) {
-                sb.append("| ").append(tablero[i][j] == null ? " ": tablero[i][j]).append(" ");
+                sb.append("| ").append(tablero[i][j].equals(Ficha.NONE) ? " ": tablero[i][j]).append(" ");
             }
             sb.append("|\n");
         }
@@ -94,10 +94,63 @@ public class Ejercicio3 {
         return sb.toString();
     }
 
+    private static boolean esJugadaGanadora(Ficha[][] tablero, Ficha ficha){
+
+        int contadorDiagonal1 = 0;
+        int contadorDiagonal2 = 0;
+
+        for (int i = 0; i < tablero.length ; i++) {
+            int contadorHorizontal = 0;
+            int contadorVertical = 0;
+            for (int j = 0; j < tablero[i].length ; j++) {
+                Ficha fichaActual = tablero[i][j];
+                if (tablero[i][j].equals(ficha)){
+                    contadorHorizontal++;
+                }
+                if (tablero[j][i].equals(ficha)){
+                    contadorVertical++;
+                }
+
+                if (i == j && tablero[i][j] .equals(ficha)){
+                    contadorDiagonal1++;
+                }
+                if (j == tablero.length-1-i && tablero[i][j].equals(ficha)){
+                    contadorDiagonal2++;
+                }
+            }
+            if (contadorHorizontal == tablero[i].length || contadorVertical == tablero.length){
+                return true;
+            }
+            if (contadorDiagonal1 == tablero.length || contadorDiagonal2 == tablero.length){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static Jugador siguienteTurno(){
+        Jugador[] jugadores = Jugador.values();
+        return jugadores[(turnoActual.ordinal() + 1) % jugadores.length];
+    }
+
+    private static
 
     public static void main(String[] args) {
+        tablero = new Ficha[FILAS][COLUMNAS];
+        boolean partidaFinalizada;
+        boolean hayGanador;
         reset();
-        play();
-        play();
+        do {
+            play();
+            hayGanador = esJugadaGanadora(tablero, getFichaJugador(turnoActual));
+
+            if (!hayGanador){
+                turnoActual= siguienteTurno();
+            }
+            partidaFinalizada = hayGanador || ;
+        }while (!esJugadaGanadora(tablero,getFichaJugador(turnoActual)));
+
+
+        scanner.close();
     }
 }
