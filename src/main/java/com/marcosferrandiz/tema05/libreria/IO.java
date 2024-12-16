@@ -274,6 +274,29 @@ public class IO {
 
 
 
+    public static double[][] rellenarMatrizAleatoriamente(int filas, int columnas, double valorMin, double valorMax) {
+        double[][] matriz = new double[filas][columnas];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = aleatorio(valorMin,valorMax);
+            }
+        }
+        return matriz;
+    }
+
+    public static int[][] rellenarMatrizAleatoriamente(int filas, int columnas, int valorMin, int valorMax) {
+        Random random = new Random();
+        int[][] matriz = new int[filas][columnas];
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                matriz[i][j] = random.nextInt(valorMin,valorMax+1);
+            }
+        }
+        return matriz;
+    }
+
+
+
 
 
 

@@ -10,7 +10,7 @@ public class rng {
      * @param numMax El numero maximo
      * @return Saca el numero aleatorio
      */
-    public static int notaAleatoria(int numMin, int numMax){
+    public static int nnumeroAleatorio(int numMin, int numMax){
         Random rng = new Random();
         int numero = rng.nextInt(numMin,numMax+1);
         return numero;
